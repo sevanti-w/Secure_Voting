@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div>
+    <p>Your account details are below:</p>
+    <table>
+        <tr>
+            <td>Generated ID:</td>
+            <td>{{ account[5] }}</td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>{{ account[2] }}</td>
+        </tr>
+        <tr>
+            <td>License:</td>
+            <td>{{ account[1] }}</td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td>{{ account[3] }}</td>
+        </tr>
+        
+        
+    </table>
+    <div class="reg-msg">Please remember the Generated ID and Password, as it will be required on Voting Day</div>
+</div>
+{% endblock %}

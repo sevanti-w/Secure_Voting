@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>{% block title %}{% endblock %}</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+      <script>
+         function clicked(e)
+         {
+             var confirmed = document.querySelector('input[name="candidate"]:checked').value;
+             if(!confirm('confirm '+confirmed+'?'))
+                 return false;
+         }
+      </script>
+   </head>
+   <body class="loggedin">
+      <nav class="navtop">
+         <div>
+            <h1>Ballot</h1>
+         </div>
+      </nav>
+      <div class="content">
+      <p>Welcome</p>
+      <div>
+      <div class="reg-msg">Vote for one</div>
+      <div>
+         <form action="{{ url_for('ballot_home') }}" id="textform" method="post">
+            <div class="candidate-wrapper">
+               <input type="radio" name="candidate" id="biden" value="Joe Biden">
+               <label for="biden">
+               Joe Biden
+               </label>
+            </div>
+            <div class="candidate-wrapper">
+               <input type="radio" name="candidate" id="trump" value = "Donald Trump">
+               <label for="trump">
+               Donald Trump
+               </label>
+            </div>
+            <div class="candidate-wrapper">
+               <input type="radio" name="candidate" id="no_candidate" value = "Independent">
+               <label for="no_candidate">
+               Independent
+               </label>
+            </div>
+            <input type="submit" value="Post" id = "vote_submit" class="vote_submit" onclick="return clicked();">
+         </form>
+      </div>
+   </body>
+</html>
